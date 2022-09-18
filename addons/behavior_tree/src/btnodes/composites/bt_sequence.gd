@@ -1,4 +1,4 @@
-class_name BTSequence, "res://addons/behavior_tree/icons/btsequence.svg"
+class_name BTSequence
 extends BTComposite
 
 # Ticks its children as long as ALL of them are successful.

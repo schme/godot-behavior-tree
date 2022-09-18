@@ -1,4 +1,4 @@
-class_name BTAlways, "res://addons/behavior_tree/icons/btalways.svg"
+class_name BTAlways
 extends BTDecorator
 
 # Executes the child and always either succeeds or fails.

@@ -1,4 +1,4 @@
-class_name BTSelector, "res://addons/behavior_tree/icons/btselector.svg"
+class_name BTSelector
 extends BTComposite
 
 # Ticks its children until ANY of them succeeds, thus succeeding.

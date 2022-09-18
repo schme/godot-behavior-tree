@@ -1,4 +1,4 @@
-class_name BTParallel, "res://addons/behavior_tree/icons/btparallel.svg"
+class_name BTParallel
 extends BTComposite
 
 # Executes each child. doesn't wait for completion, always succeeds.

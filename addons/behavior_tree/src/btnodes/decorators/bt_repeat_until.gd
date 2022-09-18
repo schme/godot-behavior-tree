@@ -1,4 +1,4 @@
-class_name BTRepeatUntil, "res://addons/behavior_tree/icons/btrepeatuntil.svg"
+class_name BTRepeatUntil
 extends BTDecorator
 
 # Repeats until specified state is returned, then sets state to child state

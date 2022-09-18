@@ -1,4 +1,4 @@
-class_name BTComposite, "res://addons/behavior_tree/icons/btcomposite.svg"
+class_name BTComposite
 extends BTNode
 
 # Executes every child, waiting for completion. Always succeeds.

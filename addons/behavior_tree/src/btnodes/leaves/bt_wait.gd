@@ -1,4 +1,4 @@
-class_name BTWait, "res://addons/behavior_tree/icons/btwait.svg"
+class_name BTWait
 extends BTLeaf
 
 # Waits for wait_time seconds, then succeeds. time_in_bb is the key where,

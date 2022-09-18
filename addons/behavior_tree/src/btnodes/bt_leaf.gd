@@ -1,4 +1,4 @@
-class_name BTLeaf, "res://addons/behavior_tree/icons/btleaf.svg"
+class_name BTLeaf
 extends BTNode
 
 # Leaf nodes are used to implement your own behavior logic.

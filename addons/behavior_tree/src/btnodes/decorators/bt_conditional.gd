@@ -1,4 +1,4 @@
-class_name BTConditional, "res://addons/behavior_tree/icons/btconditional.png"
+class_name BTConditional
 extends BTDecorator
 
 # Used to create conditions. The condition is checked BEFORE ticking,

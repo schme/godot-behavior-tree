@@ -1,4 +1,4 @@
-class_name BTNode, "res://addons/behavior_tree/icons/btnode.svg"
+class_name BTNode
 extends Node
 
 # Base class from which every node in the behavior tree inherits.
