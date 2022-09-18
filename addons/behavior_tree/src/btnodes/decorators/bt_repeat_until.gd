@@ -3,10 +3,10 @@ extends BTDecorator
 
 # Repeats until specified state is returned, then sets state to child state
 
-export(int, "Failure", "Success") var until_what
-export(float) var frequency
+@export_enum("Failure", "Success") var until_what
+@export var frequency: float
 
-onready var expected_result = bool(until_what)
+@onready var expected_result = bool(until_what)
 
 # Public: Repeatedly calls the childrens _tick functions until the desired result is returned
 #

@@ -3,8 +3,8 @@ extends BTDecorator
 
 # Executes child "iterations" times and returns the last state and tick result
 
-export(int, 0, 999) var times_to_repeat: int = 1
-export(float) var frequency
+@export_range(0, 999) var times_to_repeat: int = 1
+@export var frequency: float 
 
 
 # Public: Repeatedly calls the childrens _tick functions until the times_to_repeat is reatched

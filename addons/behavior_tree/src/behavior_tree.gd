@@ -4,17 +4,17 @@ extends Node
 # This is your main node. Put one of these at the root of the scene and start adding BTNodes.
 # A Behavior Tree only accepts ONE entry point (so one child).
 
-export(bool) var is_active: bool = false
-export(NodePath) var _blackboard
-export(NodePath) var _agent
-export(int, "Idle", "Physics") var sync_mode
-export(bool) var debug = false
+@export var is_active: bool = false
+@export var _blackboard: NodePath
+@export var _agent: NodePath
+@export("Idle", "Physics") var sync_mode
+@export var debug: bool = false
 
 var tick_result
 
-onready var agent = get_node(_agent) as Node
-onready var blackboard = get_node(_blackboard) as Blackboard
-onready var bt_root = get_child(0) as BTNode
+@onready var agent = get_node(_agent) as Node
+@onready var blackboard = get_node(_blackboard) as Blackboard
+@onready var bt_root = get_child(0) as BTNode
 
 func _ready() -> void:
 	assert(get_child_count() == 1, "A Behavior Tree can only have one entry point.")

@@ -5,8 +5,8 @@ extends BTLeaf
 # if desired, another amount can be specified. In that case, wait_time is overridden.
 
 
-export(float) var wait_time: float
-export(String) var time_in_bb: String
+@export var wait_time: float
+@export var time_in_bb: String
 
 # Public: Returns true once the yield is completed
 #

@@ -3,9 +3,9 @@ extends BTDecorator
 
 # Executes the child and always either succeeds or fails.
 
-export(int, "Fail", "Succeed") var always_what
+@export_enum("Fail", "Succeed") var always_what
 
-onready var return_func: String = "fail" if always_what == 0 else "succeed"
+@onready var return_func: String = "fail" if always_what == 0 else "succeed"
 
 
 # Public: Runs the child's _tick function returns the result

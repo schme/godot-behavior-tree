@@ -8,7 +8,7 @@ extends BTDecorator
 # If you want to know the result of the condition, store in the blackboard
 # during _pre_tick().
 
-export(bool) var reverse: bool = false
+@export var reverse: bool = false
 
 var verified: bool = false
 var ignore_reverse: bool = false

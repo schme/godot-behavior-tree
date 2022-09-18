@@ -11,18 +11,18 @@ extends BTDecorator
 #
 # A locked BTGuard will always return fail().
 
-export(bool) var start_locked = false
-export(bool) var permanent = false
-export(NodePath) var _locker
-export(int, "Failure", "Success", "Always") var lock_if
-export(NodePath) var _unlocker
-export(int, "Failure", "Success") var unlock_if
-export(float) var lock_time = 0.05
+@export var start_locked: bool = false
+@export var permanent: bool = false
+@export var _locker: NodePath
+@export_enum("Failure", "Success", "Always") var lock_if
+@export var _unlocker: NodePath
+@export "Failure", "Success") var unlock_if: int
+@export var lock_time: float = 0.05
 
 var locked: bool = false
 
-onready var unlocker: BTNode = get_node_or_null(_unlocker)
-onready var locker: BTNode = get_node_or_null(_locker)
+@onready var unlocker: BTNode = get_node_or_null(_unlocker)
+@onready var locker: BTNode = get_node_or_null(_locker)
 
 func _ready():
 	if start_locked:
