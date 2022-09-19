@@ -18,6 +18,6 @@ extends BTDecorator
 #	_tick(Node.new(), Blackboard.new())
 #		=> true
 func _tick(agent: Node, blackboard: Blackboard) -> bool:
-	var result = bt_child.do_tick(agent, blackboard)
+	var result = await bt_child.do_tick(agent, blackboard)
 
 	return call(return_func)

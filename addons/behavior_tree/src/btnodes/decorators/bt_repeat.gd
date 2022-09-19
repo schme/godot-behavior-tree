@@ -20,7 +20,7 @@ func _tick(agent: Node, blackboard: Blackboard) -> bool:
 	var result
 
 	for i in times_to_repeat:
-		result = bt_child.do_tick(agent, blackboard)
+		result = await bt_child.do_tick(agent, blackboard)
 
 		await get_tree().create_timer(frequency, false).timeout
 

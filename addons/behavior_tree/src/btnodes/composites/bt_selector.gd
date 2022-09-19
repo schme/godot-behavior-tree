@@ -19,7 +19,7 @@ func _tick(agent: Node, blackboard: Blackboard) -> bool:
 	for c in children:
 		bt_child = c
 
-		result = bt_child.do_tick(agent, blackboard)
+		result = await bt_child.do_tick(agent, blackboard)
 
 		if bt_child.succeeded():
 			return succeed()

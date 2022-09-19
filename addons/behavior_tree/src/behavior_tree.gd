@@ -19,7 +19,7 @@ var tick_result
 
 func _ready() -> void:
 	assert(get_child_count() == 1, "A Behavior Tree can only have one entry point.")
-	bt_root.propagate_call("connect", ["abort_tree", self, "abort"])
+	bt_root.propagate_call("connect", ["abort_tree", self.abort])
 	start()
 
 func _process(_delta: float) -> void:
@@ -30,7 +30,7 @@ func _process(_delta: float) -> void:
 	if debug:
 		print()
 
-	tick_result = bt_root.do_tick(agent, blackboard)
+	tick_result = await bt_root.do_tick(agent, blackboard)
 
 func _physics_process(_delta: float) -> void:
 	if not is_active:
@@ -40,7 +40,7 @@ func _physics_process(_delta: float) -> void:
 	if debug:
 		print()
 
-	tick_result = bt_root.do_tick(agent, blackboard)
+	tick_result = await bt_root.do_tick(agent, blackboard)
 
 # Internal: Set up if we are using process or physics_process for the behavior tree
 func start() -> void:

@@ -28,7 +28,7 @@ enum BTNodeState {
 # Turn this on to abort the tree after completion.
 @export var should_abort_tree: bool
 
-var state: int: set = set_state
+var state: int
 
 func _ready():
 	if is_active:
@@ -82,8 +82,6 @@ func set_state(rhs: int) -> bool:
 			return succeed()
 		BTNodeState.FAILURE:
 			return fail()
-		BTNodeState.RUNNING:
-			return running()
 
 	assert(false, "Invalid BTNodeState assignment. Can only set to success or failure.")
 	return false
@@ -136,7 +134,7 @@ func do_tick(agent: Node, blackboard: Blackboard) -> bool:
 
 	run()
 
-	var result = _tick(agent, blackboard)
+	var result = await _tick(agent, blackboard)
 
 	# Do stuff after core behavior depending on the result
 	_post_tick(agent, blackboard, result)

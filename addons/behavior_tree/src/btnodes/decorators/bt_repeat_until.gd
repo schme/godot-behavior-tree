@@ -7,7 +7,7 @@ extends BTDecorator
 @export_enum("Failure", "Success") var until_what
 @export var frequency: float
 
-@onready var expected_result = bool(until_what)
+@onready var expected_result = until_what
 
 # Public: Repeatedly calls the childrens _tick functions until the desired result is returned
 #
@@ -21,7 +21,7 @@ func _tick(agent: Node, blackboard: Blackboard) -> bool:
 	var result = not expected_result
 
 	while result != expected_result:
-		result = bt_child.do_tick(agent, blackboard)
+		result = await bt_child.do_tick(agent, blackboard)
 
 		await get_tree().create_timer(frequency, false).timeout
 

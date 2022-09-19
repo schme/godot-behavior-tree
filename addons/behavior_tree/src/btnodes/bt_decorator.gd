@@ -19,6 +19,7 @@ func _ready():
 #	_tick(Node.new(), Blackboard.new())
 #		=> true
 func _tick(agent: Node, blackboard: Blackboard) -> bool:
-	var result = bt_child.do_tick(agent, blackboard)
+	var result = await bt_child.do_tick(agent, blackboard)
 
-	return set_state(bt_child.state)
+	state = bt_child.state
+	return succeeded()
