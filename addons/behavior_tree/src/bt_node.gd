@@ -28,13 +28,13 @@ enum BTNodeState {
 # Turn this on to abort the tree after completion.
 @export var should_abort_tree: bool
 
-var state: int setget set_state
+var state: int: set = set_state
 
 func _ready():
 	if is_active:
 		succeed()
 	else:
-		push_warning("Deactivated BTNode '" + name + "', path: '" + get_path() + "'")
+		push_warning("Deactivated BTNode '%s', path: '%s'" % [name, get_path()])
 		fail()
 
 
@@ -119,7 +119,7 @@ func get_state() -> String:
 
 
 # Again, DO NOT override this.
-func tick(agent: Node, blackboard: Blackboard) -> bool:
+func do_tick(agent: Node, blackboard: Blackboard) -> bool:
 	if not is_active:
 		return fail()
 
@@ -135,19 +135,6 @@ func tick(agent: Node, blackboard: Blackboard) -> bool:
 	run()
 
 	var result = _tick(agent, blackboard)
-
-	if result is GDScriptFunctionState:
-		assert(
-			running(),
-			"BTNode execution was suspended. Did you succeed() or fail() before yield?"
-		)
-
-		result = yield(result, "completed")
-
-	assert(
-		not running(),
-		"BTNode executed but it's still running. Did you forget to return succeed() or fail()?"
-	)
 
 	# Do stuff after core behavior depending on the result
 	_post_tick(agent, blackboard, result)

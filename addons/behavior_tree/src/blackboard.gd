@@ -12,7 +12,7 @@ extends Node
 # This is a good way to separate data from behavior, which is essential
 # to avoid nasty bugs.
 
-export var data: Dictionary
+@export var data: Dictionary
 
 func _enter_tree() -> void:
 	data = data.duplicate()

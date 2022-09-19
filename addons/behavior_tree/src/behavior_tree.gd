@@ -6,9 +6,9 @@ extends Node
 # A Behavior Tree only accepts ONE entry point (so one child).
 
 @export var is_active: bool = false
-@export var _blackboard: NodePath
-@export var _agent: NodePath
-@export("Idle", "Physics") var sync_mode
+@export_node_path var _blackboard
+@export_node_path var _agent
+@export_enum("Idle", "Physics") var sync_mode
 @export var debug: bool = false
 
 var tick_result
@@ -30,12 +30,7 @@ func _process(_delta: float) -> void:
 	if debug:
 		print()
 
-	tick_result = bt_root.tick(agent, blackboard)
-
-	if tick_result is GDScriptFunctionState:
-		set_process(false)
-		yield(tick_result, "completed")
-		set_process(true)
+	tick_result = bt_root.do_tick(agent, blackboard)
 
 func _physics_process(_delta: float) -> void:
 	if not is_active:
@@ -45,12 +40,7 @@ func _physics_process(_delta: float) -> void:
 	if debug:
 		print()
 
-	tick_result = bt_root.tick(agent, blackboard)
-
-	if tick_result is GDScriptFunctionState:
-		set_physics_process(false)
-		yield(tick_result, "completed")
-		set_physics_process(true)
+	tick_result = bt_root.do_tick(agent, blackboard)
 
 # Internal: Set up if we are using process or physics_process for the behavior tree
 func start() -> void:

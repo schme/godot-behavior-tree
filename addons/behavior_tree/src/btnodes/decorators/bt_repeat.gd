@@ -20,11 +20,8 @@ func _tick(agent: Node, blackboard: Blackboard) -> bool:
 	var result
 
 	for i in times_to_repeat:
-		result = bt_child.tick(agent, blackboard)
+		result = bt_child.do_tick(agent, blackboard)
 
-		if result is GDScriptFunctionState:
-			result = yield(result, "completed")
-
-		yield(get_tree().create_timer(frequency, false), "timeout")
+		await get_tree().create_timer(frequency, false).timeout
 
 	return set_state(bt_child.state)

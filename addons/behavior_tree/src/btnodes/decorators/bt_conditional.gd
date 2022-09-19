@@ -38,7 +38,7 @@ func _tick(agent: Node, blackboard: Blackboard) -> bool:
 		verified = not verified
 
 	if verified:
-		return ._tick(agent, blackboard)
+		return super(agent, blackboard)
 	return fail()
 
 # Public: Runs after tick

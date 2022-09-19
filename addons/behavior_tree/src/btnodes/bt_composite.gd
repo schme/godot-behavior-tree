@@ -29,9 +29,6 @@ func _tick(agent: Node, blackboard: Blackboard) -> bool:
 
 	for c in children:
 		bt_child = c
-		result = bt_child.tick(agent, blackboard)
-
-		if result is GDScriptFunctionState:
-			result = yield(result, "completed")
+		result = bt_child.do_tick(agent, blackboard)
 
 	return succeed()

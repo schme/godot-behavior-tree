@@ -14,10 +14,10 @@ extends BTDecorator
 
 @export var start_locked: bool = false
 @export var permanent: bool = false
-@export var _locker: NodePath
+@export_node_path var _locker
 @export_enum("Failure", "Success", "Always") var lock_if
-@export var _unlocker: NodePath
-@export "Failure", "Success") var unlock_if: int
+@export_node_path var _unlocker
+@export_enum("Failure", "Success") var unlock_if
 @export var lock_time: float = 0.05
 
 var locked: bool = false
@@ -30,7 +30,7 @@ func _ready():
 		lock()
 
 	if locker:
-		locker.connect("tick", self, "_on_locker_tick")
+		locker.connect("tick", _on_locker_tick)
 
 
 # Public: Checks and sets the lock state
@@ -43,21 +43,21 @@ func lock() -> void:
 	locked = true
 
 	if debug:
-		print(name + " locked for " + str(lock_time) + " seconds")
+		print("%s locked for %s seconds" % [name, str(lock_time)])
 
 	if permanent:
 		return
 	elif unlocker:
 		while locked:
-			var result = yield(unlocker, "tick")
+			var result = await unlocker.tick
 			if result == bool(unlock_if):
 				locked = false
 	else:
-		yield(get_tree().create_timer(lock_time, false), "timeout")
+		await get_tree().create_timer(lock_time, false).timeout
 		locked = false
 
 	if debug:
-		print(name + " unlocked")
+		print(name, "unlocked")
 
 # Public: Checks if the lock is applied or not
 #
@@ -82,7 +82,7 @@ func check_lock(current_locker: BTNode) -> void:
 func _tick(agent: Node, blackboard: Blackboard) -> bool:
 	if locked:
 		return fail()
-	return ._tick(agent, blackboard)
+	return super(agent, blackboard)
 
 # Public: Excutes childrens _post_tick function if not locked
 #
