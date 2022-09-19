@@ -82,6 +82,8 @@ func set_state(rhs: int) -> bool:
 			return succeed()
 		BTNodeState.FAILURE:
 			return fail()
+		BTNodeState.RUNNING:
+			return running()
 
 	assert(false, "Invalid BTNodeState assignment. Can only set to success or failure.")
 	return false
