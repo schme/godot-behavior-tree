@@ -1,5 +1,6 @@
 class_name BehaviorTree
 extends Node
+@icon("res://addons/behavior_tree/icons/bt.svg")
 
 # This is your main node. Put one of these at the root of the scene and start adding BTNodes.
 # A Behavior Tree only accepts ONE entry point (so one child).

@@ -1,5 +1,6 @@
 class_name BTAlways
 extends BTDecorator
+@icon("res://addons/behavior_tree/icons/btdecorator.svg")
 
 # Executes the child and always either succeeds or fails.
 

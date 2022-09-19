@@ -1,5 +1,6 @@
 class_name Blackboard
 extends Node
+@icon("res://addons/behavior_tree/icons/blackboard.svg")
 
 # This is the database where all your variables go. Here you keep track of
 # whether the player is nearby, your health is low, there is a cover available,

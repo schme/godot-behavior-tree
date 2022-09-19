@@ -1,5 +1,6 @@
 class_name BTSelector
 extends BTComposite
+@icon("res://addons/behavior_tree/icons/btselector.svg")
 
 # Ticks its children until ANY of them succeeds, thus succeeding.
 # If ALL of the children fails, it fails as well.

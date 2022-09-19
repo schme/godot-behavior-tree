@@ -1,5 +1,6 @@
 class_name BTDecorator
 extends BTNode
+@icon("res://addons/behavior_tree/icons/btdecorator.svg")
 
 # Accepts only ONE child. Ticks and sets its state the same as the child.
 # Can be used to create conditions.

@@ -1,5 +1,6 @@
 class_name BTParallel
 extends BTComposite
+@icon("res://addons/behavior_tree/icons/btparallel.svg")
 
 # Executes each child. doesn't wait for completion, always succeeds.
 

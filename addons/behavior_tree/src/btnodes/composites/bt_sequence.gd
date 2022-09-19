@@ -1,5 +1,6 @@
 class_name BTSequence
 extends BTComposite
+@icon("res://addons/behavior_tree/icons/btsequence.svg")
 
 # Ticks its children as long as ALL of them are successful.
 # Successful if ALL the children are successful.

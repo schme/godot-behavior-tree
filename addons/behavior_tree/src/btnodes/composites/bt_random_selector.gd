@@ -1,5 +1,6 @@
 class_name BTRandomSelector
 extends BTSelector
+@icon("res://addons/behavior_tree/icons/btrndselector.svg")
 
 # Executes a random child and is successful at the first successful tick.
 # Attempts a number of ticks equal to the number of children. If no successful

@@ -1,6 +1,7 @@
 class_name BTNode
 extends Node
 
+
 # Base class from which every node in the behavior tree inherits.
 # You don't usually need to instance this node directly.
 # To define your behaviors, use and extend BTLeaf instead.
@@ -25,7 +26,7 @@ enum BTNodeState {
 @export var debug: bool = false
 
 # Turn this on to abort the tree after completion.
-@export var abort_tree: bool
+@export var should_abort_tree: bool
 
 var state: int setget set_state
 
@@ -155,7 +156,7 @@ func tick(agent: Node, blackboard: Blackboard) -> bool:
 	emit_signal("tick", result)
 
 	# Queue tree abortion at the end of current tick
-	if abort_tree:
+	if should_abort_tree:
 		emit_signal("abort_tree")
 
 	return result

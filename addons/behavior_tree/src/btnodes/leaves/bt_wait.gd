@@ -1,5 +1,6 @@
 class_name BTWait
 extends BTLeaf
+@icon("res://addons/behavior_tree/icons/btwait.svg")
 
 # Waits for wait_time seconds, then succeeds. time_in_bb is the key where,
 # if desired, another amount can be specified. In that case, wait_time is overridden.

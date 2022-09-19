@@ -1,5 +1,6 @@
 class_name BTComposite
 extends BTNode
+@icon("res://addons/behavior_tree/icons/btcomposite.svg")
 
 # Executes every child, waiting for completion. Always succeeds.
 #

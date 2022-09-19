@@ -1,5 +1,6 @@
 class_name BTRandomSequence
 extends BTSequence
+@icon("res://addons/behavior_tree/icons/btrndsequence.svg")
 
 # Just like a BTSequence, but the children are executed in random order.
 

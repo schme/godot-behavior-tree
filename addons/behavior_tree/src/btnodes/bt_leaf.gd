@@ -1,5 +1,6 @@
 class_name BTLeaf
 extends BTNode
+@icon("res://addons/behavior_tree/icons/btleaf.svg")
 
 # Leaf nodes are used to implement your own behavior logic.
 # That can be for example calling functions on the agent, or checking conditions in the blackboard.

@@ -1,5 +1,6 @@
 class_name BTRepeat
 extends BTDecorator
+@icon("res://addons/behavior_tree/icons/btrepeat.svg")
 
 # Executes child "iterations" times and returns the last state and tick result
 

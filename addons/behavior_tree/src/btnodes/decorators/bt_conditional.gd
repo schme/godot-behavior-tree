@@ -1,5 +1,6 @@
 class_name BTConditional
 extends BTDecorator
+@icon("res://addons/behavior_tree/icons/btconditional.svg")
 
 # Used to create conditions. The condition is checked BEFORE ticking,
 # and if the condition is met the child node is executed.
