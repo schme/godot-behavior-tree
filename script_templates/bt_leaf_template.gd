@@ -20,11 +20,6 @@ func _tick(agent: Node, blackboard: Blackboard) -> bool:
 	
 	result = agent.call("my_method", blackboard.get_data("my_key"))
 	
-	# If action is executing, wait for completion and remain in running state
-	if result is GDScriptFunctionState:
-		# Store what the action returns when completed
-		result = yield(result, "completed") 
-	
 	# If action returns anything but a bool consider it a success
 	if not result is bool: 
 		result = true

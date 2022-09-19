@@ -7,7 +7,7 @@ func _tick(agent: Node, blackboard: Blackboard) -> bool:
 		print("No ammo!")
 		return fail()
 	
-	yield(get_tree().create_timer(.4, false), "timeout")
+	await get_tree().create_timer(.4, false).timeout
 	agent.ammo -= 1
 	
 	return succeed()
